@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="m-5">
+      <div class="">
+        <label for="darkModeToggle" class="flex items-center cursor-pointer">
+          <input type="checkbox" id="darkModeToggle" />
+          <p class="ms-1">Dark Mode</p>
+        </label>
+      </div>
+      <div class="text-center">
+        <h1>Heading One</h1>
+        <h2>Heading Two</h2>
+        <h3>Heading Three</h3>
+        <p>Paragraph</p>
+      </div>
+      <div class="mb-6">
+        <label for="default-input" class="mb-1 text-sm font-medium c-text"> Default input </label>
+        <input type="text" id="default-input" />
+      </div>
+    </div>
+
+    <script>
+      const toggleSwitch = document.querySelector("#darkModeToggle")
+      const isDarkMode = localStorage.getItem("darkMode")
+
+      if (isDarkMode === "true") {
+        enableDarkMode()
+        toggleSwitch.checked = true
+      }
+
+      toggleSwitch.addEventListener("change", function () {
+        if (this.checked) {
+          enableDarkMode()
+          localStorage.setItem("darkMode", true)
+        } else {
+          disableDarkMode()
+          localStorage.setItem("darkMode", false)
+        }
+      })
+
+      function enableDarkMode() {
+        document.body.classList.add("dark")
+        document.body.style.backgroundColor = "#121212" // Change this color for dark mode
+      }
+
+      function disableDarkMode() {
+        document.body.classList.remove("dark")
+        document.body.style.backgroundColor = "#ffffff" // Change this color for light mode
+      }
+    </script>
+  </body>
+</html>
