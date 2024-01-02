@@ -10,13 +10,13 @@
 
 @layer base {
   h1 {
-    @apply text-4xl c-text;
+    @apply text-4xl font-bold c-text;
   }
   h2 {
-    @apply text-3xl c-text;
+    @apply text-3xl font-bold c-text;
   }
   h3 {
-    @apply text-2xl c-text;
+    @apply text-2xl font-bold c-text;
   }
   p {
     @apply c-text;
@@ -24,6 +24,7 @@
   label {
     @apply mb-1 text-sm font-medium c-text;
   }
+  textarea,
   input[type="text"] {
     @apply c-text border rounded-lg w-full p-2 dark:bg-gray-700/40;
   }
