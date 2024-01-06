@@ -6,6 +6,9 @@
   .c-text {
     @apply text-gray-800 dark:text-gray-200;
   }
+  .c-border {
+    @apply border border-gray-300 dark:border-gray-600;
+  }
 }
 
 @layer base {
@@ -26,6 +29,6 @@
   }
   textarea,
   input[type="text"] {
-    @apply c-text border focus:outline-black rounded-lg w-full p-2 dark:bg-gray-700/40 dark:border-gray-600;
+    @apply c-text c-border focus:outline-black rounded-lg w-full p-2 dark:bg-gray-700/40;
   }
 }
