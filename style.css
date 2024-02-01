@@ -29,6 +29,6 @@
   }
   textarea,
   input[type="text"] {
-    @apply c-text c-border focus:outline-black rounded-lg w-full p-2 dark:bg-gray-700/40;
+    @apply c-text c-border focus:outline-black w-full p-2 dark:bg-gray-700/40;
   }
 }
