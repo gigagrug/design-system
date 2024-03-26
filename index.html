@@ -10,8 +10,8 @@
   <body>
     <div class="m-5">
       <div>
-        <label for="darkModeToggle" class="flex items-center cursor-pointer">
-          <input type="checkbox" id="darkModeToggle" />
+        <label class="flex cursor-pointer items-center" for="darkModeToggle">
+          <input id="darkModeToggle" type="checkbox" />
           <p class="ms-1">Dark Mode</p>
         </label>
       </div>
@@ -23,41 +23,34 @@
       </div>
       <div class="mb-6">
         <label for="input">Input</label>
-        <input type="text" id="input" />
+        <input id="input" class="w-full rounded-lg p-2" type="text" placeholder="input placeholder" />
       </div>
       <div>
         <label for="textarea">Textarea</label>
-        <textarea id="textarea" rows="3"></textarea>
+        <textarea id="textarea" class="w-full rounded-lg p-2" placeholder="textarea placeholder" rows="3"></textarea>
       </div>
     </div>
 
     <script>
-      const toggleSwitch = document.querySelector("#darkModeToggle")
       const isDarkMode = localStorage.getItem("darkMode")
-
+      const htmlTag = document.documentElement
+      const toggleSwitch = document.querySelector("#darkModeToggle")
       if (isDarkMode === "true") {
-        enableDarkMode()
-        toggleSwitch.checked = true
-      }
-
-      toggleSwitch.addEventListener("change", function () {
-        if (this.checked) {
-          enableDarkMode()
-          localStorage.setItem("darkMode", true)
-        } else {
-          disableDarkMode()
-          localStorage.setItem("darkMode", false)
+        htmlTag.classList.add("dark")
+        if (toggleSwitch) {
+          toggleSwitch.checked = true
         }
-      })
-
-      function enableDarkMode() {
-        document.body.classList.add("dark")
-        document.body.style.backgroundColor = "#121212" // Change this color for dark mode
       }
-
-      function disableDarkMode() {
-        document.body.classList.remove("dark")
-        document.body.style.backgroundColor = "#ffffff" // Change this color for light mode
+      if (toggleSwitch) {
+        toggleSwitch.addEventListener("change", function () {
+          if (this.checked) {
+            htmlTag.classList.add("dark")
+            localStorage.setItem("darkMode", "true")
+          } else {
+            htmlTag.classList.remove("dark")
+            localStorage.setItem("darkMode", "false")
+          }
+        })
       }
     </script>
   </body>
