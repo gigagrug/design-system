@@ -23,7 +23,7 @@
       "prettier-plugin-organize-attributes"
     ],
     "attributeGroups": [
-      "^onclick$",
+      "^(onclick|onsubmit)$",
       "^(id)$",
       "^class$",
       "$DEFAULT",
